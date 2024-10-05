@@ -5,22 +5,17 @@ public class SentenceReverseTask{
 
 		Scanner userInput = new Scanner(System.in);
 		String sentence = userInput.nextLine();
-		String reverse[] = new String[sentence];
-		displayReversedString(sentence);
+		String split[] = sentence.split("");
+		displayReversedString(split);
 	}
 
-	public static void displayReversedString(String input){
-		char character = input.charAt(0);
-		String reverse = " ";
-
-		for(int count = 0; count < input.length(); count++){
-			reverse = reverse(input);
-;
-		}
-		System.out.print(reverse);
-
+	public static void displayReversedString(String[] input){
+		for(int count = input.length-1; count >= 0; count--){
+		System.out.print(input[count] + " ");
 			}
-
+	}
 }
+
+
 
 

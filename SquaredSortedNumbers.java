@@ -37,15 +37,14 @@ return numbers;
 public static int[] displaySortedNumbers(int[] input){
 
 	for(int count = 0; count < input.length; count++){
-		for(int index = 0; index < input.length; index++){
+		for(int index = 1; index < input.length; index++){
 
-		if (input[index] > input[index + 1]){
-
-			input[index] = input[index] + input[index + 1];
-			input[index + 1] = input[index] - input[index + 1];
-			input[index] = input[index] - input[index + 1];
+		if (input[index] > input[index - 1]){
+			int temp = input[index-1];
+			input[index-1] = input[index];
+			input[index] = temp;
+				}
 			}
-		}
 	
 		}
 return input;
@@ -56,15 +55,15 @@ return input;
 
 public static void main(String[] args){
 
-int[] userInput = getUserInput();
+	int[] userInput = getUserInput();
 	
-System.out.print(Arrays.toString(userInput));
-System.out.print(Arrays.toString(displaySquaredNumbers(userInput)));
+	System.out.print(Arrays.toString(userInput));
+	System.out.print(Arrays.toString(displaySquaredNumbers(userInput)));
 
 
-int[] sortedNumbers = (displaySortedNumbers(userInput));
-System.out.print(Arrays.toString(sortedNumbers));
-}
+	//int[] sortedNumbers = displaySortedNumbers(userInput);
+	System.out.print(Arrays.toString(displaySortedNumbers(userInput)));
+	}
 
 }
 
