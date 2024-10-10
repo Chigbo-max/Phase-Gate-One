@@ -31,6 +31,17 @@ public class KataTest{
 	
 	assertThrows(IllegalArgumentException.class,()->yearToCenturyConverter.isNegative(year));
 	}
+	
+	@Test
+	public void testNonIntegerYearThrowsException(){
+
+	String year = "abc";
+
+	YearToCenturyConverter yearToCenturyConverter = new YearToCenturyConverter();
+
+	assertThrows(IllegalArgumentException.class,()->yearToCenturyConverter.isNonInteger(year));
+		
+	}
 
 
 
