@@ -4,6 +4,7 @@ import java.util.Arrays;
 public class StudentGradeCalculator{
 			
 	public int numberOfSubjects;
+	public int numberOfStudents;
 
 	public static void main(String... args){
 	
@@ -22,7 +23,7 @@ public class StudentGradeCalculator{
 			Scanner userInput = new Scanner(System.in);
 
 			System.out.println("How many students do you have? ");
-			int numberOfStudents = userInput.nextInt();
+			this.numberOfStudents = userInput.nextInt();
 
 			System.out.println("How many subjects do they offer? ");
 			this.numberOfSubjects = userInput.nextInt();
@@ -30,16 +31,14 @@ public class StudentGradeCalculator{
 
 			int[][] array = new int[numberOfStudents][numberOfSubjects];
 		
-			int column;
-			int row;
 
-			for(row = 0; row < array.length; row++){
+			for(int students = 0; students < array.length; students++){
 
-				for(column = 0; column < array[row].length; column++){
+				for(int subjects = 0; subjects < array[students].length; subjects++){
 
-					System.out.println("Entering score for student" + " " + (row+1));
-					System.out.println("Enter score for subject" + " " + (column+1));
-					array[row][column] = userInput.nextInt();
+					System.out.println("Entering score for student" + " " + (students+1));
+					System.out.println("Enter score for subject" + " " + (subjects+1));
+					array[students][subjects] = userInput.nextInt();
 
 				}
 
@@ -55,53 +54,52 @@ public class StudentGradeCalculator{
 
 			int[][] scoresCollected = collectScores();
 
-		
-		
+
+			System.out.print("============================================================"+"\n"); 
 
 
-		System.out.print("============================================================"+"\n"); 
-
-
-		System.out.print("STUDENT" + "\t"); 
+			System.out.print("STUDENT" + "\t"); 
 
 
 
-			for(int column = 0; column < this.numberOfSubjects; column++){
-				System.out.print("\t"+ "SUB" + (column+1));
+			for(int subjects = 0; subjects < this.numberOfSubjects; subjects++){
+				System.out.print("\t"+ "SUB" + (subjects+1));
 			}
 
-		System.out.print("\t" + "TOT" + "\t" + "AVE" + "\t" + "POS"); 
+			System.out.print("\t" + "TOT" + "\t" + "AVE" + "\t" + "POS"); 
 
-		System.out.println();
+			System.out.println();
 
-		System.out.print("============================================================"+"\n"); 
+			System.out.print("============================================================"+"\n"); 
 
 	
+			int[] totalScores = new int[this.numberOfStudents];
 
+			for(int students = 0; students < scoresCollected.length; students++){
+				int total = 0;
+				double average = 0;
 
-		for(int row = 0; row < scoresCollected.length; row++){
-			int total = 0;
-			double average = 0;
-			for(int column = 0; column < scoresCollected[row].length; column++){
+				for(int subjects = 0; subjects < scoresCollected[students].length; subjects++){
 
-				if(column < 1){
-					System.out.print("Student" + " " + (row+1) + "\t");
-					System.out.print(scoresCollected[row][column] + "\t"); 
-					total += scoresCollected[row][column]; 
-					average = (double)total /this.numberOfSubjects;
-					}
-				else{
-					System.out.print(scoresCollected[row][column] + "\t"); 
-					total += scoresCollected[row][column]; 
-					average = (double)total / this.numberOfSubjects;
+					if(subjects < 1){
+						System.out.print("Student" + " " + (students+1) + "\t");
+						System.out.print(scoresCollected[students][subjects] + "\t"); 
+						total += scoresCollected[students][subjects]; 
+						average = (double)total /this.numberOfSubjects;
+						totalScores[students] = total;
+
+						}
+					else{
+						System.out.print(scoresCollected[students][subjects] + "\t"); 
+						total += scoresCollected[students][subjects]; 
+						average = (double)total / this.numberOfSubjects;
+						totalScores[students] = total;
 
 						}
 
 					}
-				
-				 //sum = total[column];
+
 				System.out.print(total + "\t");
-				//float = average[column];
 				System.out.printf("%.1f",average);
 
 				System.out.println();
@@ -109,7 +107,10 @@ public class StudentGradeCalculator{
 				}
 			System.out.print("============================================================"+"\n"); 
 
-	return scoresCollected;
+					System.out.print(Arrays.toString(totalScores));
+
+		return scoresCollected;
+
 	}
 
 
