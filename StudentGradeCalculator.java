@@ -5,12 +5,16 @@ public class StudentGradeCalculator{
 			
 	public int numberOfSubjects;
 	public int numberOfStudents;
+	public int[] totalScores;
+
 
 	public static void main(String... args){
 	
 
 		StudentGradeCalculator studentGradeCalculator = new StudentGradeCalculator();
-		int[][] results = studentGradeCalculator.displayResults();
+		studentGradeCalculator.displayResults();
+		//studentGradeCalculator.displayPosition();
+
 		//displayPosition();
 
 			}
@@ -49,11 +53,12 @@ public class StudentGradeCalculator{
 		}
 
 
-		public int[][] displayResults(){
+		public void displayResults(){
 
 
 			int[][] scoresCollected = collectScores();
-
+			
+			
 
 			System.out.print("============================================================"+"\n"); 
 
@@ -73,7 +78,7 @@ public class StudentGradeCalculator{
 			System.out.print("============================================================"+"\n"); 
 
 	
-			int[] totalScores = new int[this.numberOfStudents];
+			this.totalScores = new int[this.numberOfStudents];
 
 			for(int students = 0; students < scoresCollected.length; students++){
 				int total = 0;
@@ -84,7 +89,7 @@ public class StudentGradeCalculator{
 					if(subjects < 1){
 						System.out.print("Student" + " " + (students+1) + "\t");
 						System.out.print(scoresCollected[students][subjects] + "\t"); 
-						total += scoresCollected[students][subjects]; 
+						total += scoresCollected[students][subjects];
 						average = (double)total /this.numberOfSubjects;
 						totalScores[students] = total;
 
@@ -99,22 +104,89 @@ public class StudentGradeCalculator{
 
 					}
 
-				System.out.print(total + "\t");
-				System.out.printf("%.1f",average);
+				System.out.print(total + "\t" );
 
-				System.out.println();
+				System.out.printf("%.1f\t\n",average);
+			//int positions = getPosition();
+			//System.out.print(positions);
 
-				}
-			System.out.print("============================================================"+"\n"); 
+			}
+
+
+			int[] newPosition = getPosition();
+			for(int student = 0; student < newPosition.length; student++){
+
+				System.out.println(newPosition[student] +"\t");
+
+					}
+
+			System.out.println();
+
+			System.out.println("============================================================"+"\n"); 
 
 					System.out.print(Arrays.toString(totalScores));
-
-		return scoresCollected;
 
 	}
 
 
 
+
+	public int[] getPosition(){
+
+		int[] scores = this.totalScores;
+
+		int[] sortedScores = new int[scores.length];
+		
+		for(int count = 0; count < sortedScores.length; count++){
+			sortedScores[count] = scores[count];
+			}
+					
+		for(int index = 0; index < sortedScores.length; index++){
+		
+			for(int checker = 1; checker < sortedScores.length; checker++){
+				if(sortedScores[checker] < sortedScores[checker - 1]){
+			
+					int temp = sortedScores[checker - 1];
+					sortedScores[checker - 1] = sortedScores[checker];
+					sortedScores[checker] = temp;
+					
+					}
+
+				}
+			
+			}
+	
+
+		int[] newPositions = new int[scores.length];
+
+
+		for(int scoreIndex = 0; scoreIndex < scores.length; scoreIndex++){
+
+				int count = 1;
+
+			for(int sortedScoresIndex = 0; sortedScoresIndex < sortedScores.length; sortedScoresIndex++){
+				if(sortedScores[sortedScoresIndex] > scores[scoreIndex]){
+						count++;
+						}
+
+					}
+				newPositions[scoreIndex] = count;
+				
+
+				}
+
+			
+	//System.out.print(Arrays.toString(newPositions));
+
+			
+			return newPositions;
+
+
+		//System.out.print(Arrays.toString(positions));
+			//return position;
+
+
+	}
 
 
 

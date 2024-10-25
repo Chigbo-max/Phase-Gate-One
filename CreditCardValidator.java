@@ -8,10 +8,10 @@ public class CreditCardValidator{
 		String cardNumbers = userInput.next();
 		String[]  splittedCardNumbers = cardNumbers.split("");
 
-		checkCreditCardLength(splittedCardNumbers);
+		displayCardDetails(splittedCardNumbers);
 	}
 
-	public static void checkCreditCardLength(String[] numbers){
+	public static void displayCardDetails(String[] numbers){
 
 			if(numbers.length >= 13 && numbers.length <= 16)
 			{
@@ -19,16 +19,16 @@ public class CreditCardValidator{
 			displayCreditCardNumber(numbers);
 			displayCreditCardLength(numbers);
 			determineCardValidity(numbers);
-
 			}else{
-				System.out.print("Invalid number");
+				System.out.println("Invalid card numbers");
+				System.out.println("The length must be between 13 and 16");
 				
 			}
 	}
 
 
 
-	public static String[] checkPrefix(String[] numbers){
+		public static String[] checkPrefix(String[] numbers){
 		
 		
 			if (numbers[0].equals("4")){
@@ -50,7 +50,7 @@ public class CreditCardValidator{
 
 		return numbers;
 
-	}
+		}
 
 
 
@@ -73,23 +73,56 @@ public class CreditCardValidator{
 		}
 
 
+
 		public static void determineCardValidity(String[] numbers){
 			
-			int[] arrayCardNumbers = new int[numbers.length];
+			int[] cardNumbers = new int[numbers.length];
 			for(int count = 0; count < numbers.length; count++){
-				arrayCardNumbers[count] = Integer.parseInt(numbers[count]);
+				cardNumbers[count] = Integer.parseInt(numbers[count]);
 
 				}
+			
+			int sumOfNumbersLessThanOrEqualToFour = 0;
+			int sumOfNumbersGreaterThanFour = 0;
+			for(int index = cardNumbers.length - 1; index >= 0; index--){
+				if(index % 2 == 0 && cardNumbers[index] <= 4){
+					sumOfNumbersLessThanOrEqualToFour +=cardNumbers[index] * 2;
+					}
+				}
+
+			for(int index = cardNumbers.length - 1; index >= 0; index--){
+				if(index % 2 == 0 && cardNumbers[index] > 4 ){
+					
+					sumOfNumbersGreaterThanFour +=(cardNumbers[index] * 2) - 9;
+					}
+				}
+
+			int total = sumOfNumbersLessThanOrEqualToFour + sumOfNumbersGreaterThanFour;
+			System.out.print(total);
+
+
+			int sumOfOddPositions = 0;
+			for(int index = cardNumbers.length - 1; index >= 0; index--){
+				if(index % 2 != 0){
+					sumOfOddPositions +=cardNumbers[index];
+					}
+				}
+
+			int sumTotal = sumOfOddPositions + total;
+
+			System.out.print(sumTotal + " ");
 		
+			if(sumTotal % 10 == 0){
+				System.out.println("Credit Card Validity Status: Valid");
+				}
+			else{
 
-			System.out.print(Arrays.toString(arrayCardNumbers));
+				System.out.println("Credit Card Validity Status: Invalid");
+		
+			}
 
+			
 		}
 
-
-
-
-
 		
-
 }
