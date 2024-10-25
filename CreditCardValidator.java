@@ -98,7 +98,6 @@ public class CreditCardValidator{
 				}
 
 			int total = sumOfNumbersLessThanOrEqualToFour + sumOfNumbersGreaterThanFour;
-			System.out.print(total);
 
 
 			int sumOfOddPositions = 0;
@@ -110,7 +109,6 @@ public class CreditCardValidator{
 
 			int sumTotal = sumOfOddPositions + total;
 
-			System.out.print(sumTotal + " ");
 		
 			if(sumTotal % 10 == 0){
 				System.out.println("Credit Card Validity Status: Valid");
