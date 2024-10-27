@@ -6,6 +6,8 @@ public class MbtiPersonalityTest{
 
 	public static void main(String... args){
 		Scanner userInput = new Scanner(System.in);
+
+		
 		String name = getName(userInput);
 		
 
@@ -103,9 +105,8 @@ public class MbtiPersonalityTest{
 
 				System.out.println("You selected: ");
 				
-				int row;
 
-				for(row = 0; row < survey.length; row++){
+				for(int row = 0; row < survey.length; row++){
 
 					if (answers[row].equals(options[row][0])) {
                 				if((row == 0)|| (row == 4) || (row == 8) || (row == 12) || (row == 16)) extrovert++; 
@@ -120,11 +121,14 @@ public class MbtiPersonalityTest{
 				getIntrovertsVsExtrovertsInputs(answers, survey, options);
 
 				System.out.print("Number of A selected:  " + extrovert + " ");
-				System.out.print("Number of B selected:  " + introvert + " ");
+				System.out.print("  Number of B selected:  " + introvert + " ");
+
+
+				System.out.println();
+				System.out.println();
 
 				return personalityType[0] = (extrovert > introvert)? "E" : "I";			
 
-			
 
 
 
@@ -165,11 +169,9 @@ public class MbtiPersonalityTest{
 			int sensing = 0;
 			int intuitive = 0;
 			
-			int row;
 
 
-
-			for(row = 0; row < survey.length; row++){
+			for(int row = 0; row < survey.length; row++){
 
 				if (answers[row].equals(options[row][0])) {
                 			if((row == 1)|| (row == 5) || (row == 9) || (row == 13) || (row == 17)) sensing++; 
@@ -183,12 +185,16 @@ public class MbtiPersonalityTest{
 				getSensingVsIntuitiveInputs(answers, survey, options);
 
 				System.out.print("Number of A selected:  " + sensing + " ");
-				System.out.print("Number of B selected:  " + intuitive + " ");
+				System.out.print("  Number of B selected:  " + intuitive + " ");
+
+				System.out.println();
+				System.out.println();
 				
 				return personalityType[1] = (sensing > intuitive)? "S" : "N";
 
 					
 				
+
 			}
 
 
@@ -242,10 +248,14 @@ public class MbtiPersonalityTest{
 				getThinkingVsFeelingInputs(answers, survey, options);
 
 				System.out.print("Number of A selected:  " + thinking + " ");
-				System.out.print("Number of B selected:  " + feeling + " ");
+				System.out.print("  Number of B selected:  " + feeling + " ");
+
+				System.out.println();
+				System.out.println();
 
 				return personalityType[2] = (thinking > feeling)? "T" : "F";
 
+				
 
 			}
 
@@ -294,10 +304,15 @@ public class MbtiPersonalityTest{
 				getJudgingVsPerceptiveInputs(answers, survey, options);
 
 				System.out.print("Number of A selected:  " + judging + " ");
-				System.out.print("Number of B selected:  " + perceptive + " ");
+				System.out.print("  Number of B selected:  " + perceptive + " ");
 
+				System.out.println();
+				System.out.println();
 
 				return personalityType[3] = (judging  > perceptive)? "J" : "P";
+				
+				
+
 
 			}
 
@@ -321,8 +336,7 @@ public class MbtiPersonalityTest{
 						}
 
 				}
-						System.out.println();
-						System.out.println();
+						
 			}
 
 
@@ -331,7 +345,6 @@ public class MbtiPersonalityTest{
 			public static String displayPersonalityType(String[] personalityType){
 
 			
-			System.out.println(Arrays.toString(personalityType));
 
 
 

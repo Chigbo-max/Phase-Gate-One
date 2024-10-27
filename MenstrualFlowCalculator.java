@@ -20,6 +20,9 @@ public class MenstrualFlowCalculator{
 			}
 
 		}
+
+
+
 	
 
 		public static void displayMainMenu(){
@@ -168,7 +171,7 @@ public class MenstrualFlowCalculator{
 
 			LocalDate ovulationDate = firstFlowDate.plusDays(average);
 
-			System.out.println("Ovulation date starts from: " + ovulationDate);
+			System.out.println("Ovulation date is: " + ovulationDate);
 
 		}
 
@@ -195,7 +198,7 @@ public class MenstrualFlowCalculator{
 
 			LocalDate safePeriod = firstFlowDate.plusDays(result);
 		
-			System.out.println("Safe period starts from: " + safePeriod);
+			System.out.println("Safe period is about: " + safePeriod);
 
 
 		}
