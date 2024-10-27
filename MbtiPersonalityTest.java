@@ -534,62 +534,62 @@ public class MbtiPersonalityTest{
 			
 
 			if(personalityType[0].equals("E") && personalityType[1].equals("N") && personalityType[2].equals("F") && personalityType[3].equals("P")){
-			System.out.println(enfpText);
+				System.out.println(enfpText);
 
 			}else if (personalityType[0].equals("E") && personalityType[1].equals("N") && personalityType[2].equals("F") && personalityType[3].equals("J")){
-			System.out.println(enfjText);
+				System.out.println(enfjText);
 	
 
 			}else if(personalityType[0].equals("I") && personalityType[1].equals("N") && personalityType[2].equals("F") && personalityType[3].equals("P")){
-			System.out.println(infpText);
+				System.out.println(infpText);
 
 			}else if (personalityType[0].equals("I") && personalityType[1].equals("N") && personalityType[2].equals("F") && personalityType[3].equals("J")){
-			System.out.println(infjText);
+				System.out.println(infjText);
 
 			}else if(personalityType[0].equals("E") && personalityType[1].equals("N") && personalityType[2].equals("T") && personalityType[3].equals("P")){
-			System.out.println(enfpText);
+				System.out.println(enfpText);
 
 
 			}else if(personalityType[0].equals("E") && personalityType[1].equals("N") && personalityType[2].equals("T") && personalityType[3].equals("J")){
-			System.out.println(enfpText);
+				System.out.println(enfpText);
 
 
 
 			}else if(personalityType[0].equals("I") && personalityType[1].equals("N") && personalityType[2].equals("T") && personalityType[3].equals("P")){
-			System.out.println(entpText);
+				System.out.println(entpText);
 
 
 			}else if(personalityType[0].equals("I") && personalityType[1].equals("N") && personalityType[2].equals("T") && personalityType[3].equals("J")){
 					
-			System.out.println(intjText);
+				System.out.println(intjText);
 
 				
 			}else if(personalityType[0].equals("E") && personalityType[1].equals("S") && personalityType[2].equals("F") && personalityType[3].equals("J")){
 					
-			System.out.println(esfjText);
+				System.out.println(esfjText);
 
 			}else if(personalityType[0].equals("E") && personalityType[1].equals("S") && personalityType[2].equals("T") && personalityType[3].equals("J")){
-			System.out.println(estjText);
+				System.out.println(estjText);
 
 
 			}else if(personalityType[0].equals("I") && personalityType[1].equals("S") && personalityType[2].equals("F") && personalityType[3].equals("J")){
-			System.out.println(isfjText);
+				System.out.println(isfjText);
 
 
 			}else if(personalityType[0].equals("I") && personalityType[1].equals("S") && personalityType[2].equals("T") && personalityType[3].equals("J")){
-			System.out.println(istjText);
+				System.out.println(istjText);
 
 			}else if(personalityType[0].equals("E") && personalityType[1].equals("S") && personalityType[2].equals("F") && personalityType[3].equals("P")){
-			System.out.println(esfpText);
+				System.out.println(esfpText);
 
 			}else if(personalityType[0].equals("E") && personalityType[1].equals("S") && personalityType[2].equals("T") && personalityType[3].equals("P")){
-			System.out.println(estpText);
+				System.out.println(estpText);
 
 			}else if(personalityType[0].equals("I") && personalityType[1].equals("S") && personalityType[2].equals("F") && personalityType[3].equals("P")){
-			System.out.println(isfpText);}
+				System.out.println(isfpText);}
 
 			else if(personalityType[0].equals("I") && personalityType[1].equals("S") && personalityType[2].equals("T") && personalityType[3].equals("P")){
-			System.out.println(istpText);
+				System.out.println(istpText);
 
 				}
 			
