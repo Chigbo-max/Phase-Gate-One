@@ -32,13 +32,13 @@ public class MenstrualFlowCalculator{
 			Select your choice	
 			====================================
 			[1] I don't know my average cycle yet
-			[2] Already have your average cycle?
+			[2] I already have my average cycle
 			=====================================
 
 			""";
 			System.out.print(menu);
 			Scanner userInput =  new Scanner(System.in);
-			System.out.print("Enter a number here: ");
+			System.out.print("Enter your choice number here: ");
 			int choice = userInput.nextInt();
 
 			switch(choice){
@@ -88,21 +88,24 @@ public class MenstrualFlowCalculator{
 		
 			Scanner userInput =  new Scanner(System.in);
 
-		
-				System.out.print("Enter day of your last period e.g 1,2,3: ");
-				int day = userInput.nextInt();
+
+				System.out.print("Enter year of your last period e.g 2024: ");
+				int year = userInput.nextInt();
 
 				System.out.print("Enter month of your last period e.g 1,2,3: ");
 				int month = userInput.nextInt();
 
-				System.out.print("Enter year of your last period e.g 2024: ");
-				int year = userInput.nextInt();
+				System.out.print("Enter day of your last period e.g 1,2,3: ");
+				int day = userInput.nextInt();
 		
 				LocalDate lastFlowDate = LocalDate.of(year, month, day);
 
 				LocalDate firstFlowDate = lastFlowDate.plusDays(1);
 
-				System.out.println("Your first flow date is: " + firstFlowDate);
+				System.out.println("Your first flow date was: " + firstFlowDate);
+				
+				System.out.println();
+
 
 			return firstFlowDate;		
 		
